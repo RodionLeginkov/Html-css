@@ -5,7 +5,8 @@
     
     list-style: none;
     margin:0;
-    background:deepskyblue
+    background: linear-gradient(to right bottom, #648880, #293f50);
+    /*background:deepskyblue*/
 }
 
 .navigation a{
@@ -15,7 +16,8 @@
   color: white;
 }
 .navigation a:hover {
-    background: #1565C0;
+  background: #466368;
+  background: linear-gradient(to right bottom, #75dfec, #293f50);
   }
 
   /*@media all and (max-width: 800px) {
