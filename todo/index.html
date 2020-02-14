@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todo</title>
-    <link rel="stylesheet" href="assets/stylesheets/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha&display=swap">
- 
-</head>
-<body>
-    
-    <header>
+    <link rel="stylesheet" href="assets/stylesheets/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sriracha&display=swap"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
         <h1>Todos</h1>
-
-    </header>
-
-    <div class="inputfield">
-        <label>
-            <input type="text" placeholder="What needs to be done?" required>
-          </label>
+      </header>
     </div>
 
-    <div>
-<ul class="newlist">    
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-</ul>
+    <div class="eddrequest">
+      <form id="search">
+        <input
+          class="search"
+          name="searching"
+          placeholder="What needs to be done?..."
+        />
+      </form>
     </div>
 
-    <footer class="flex-container">
-             <p>Double-click to edit a todo</p>
-             <p>Created by petehunt</p>
-             <p>Part of TodoMVC</p>
- 
+    <div class="listsize">
+      <ul class="newlist" id="todolist"></ul>
+    </div>
 
-    </footer>
-</body>
+    <div class="container">
+      <form class="eddrequest" id="addTodoForm">
+        <input
+          name="newstring"
+          class="inputfield"
+          type="text"
+          placeholder="What needs to be done?"
+        />
+      </form>
+    </div>
+
+    <div class="container">
+      <footer class="flex-container">
+        <p>Double-click to edit a todo</p>
+        <p>Created by petehunt</p>
+        <p>Part of TodoMVC</p>
+      </footer>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
