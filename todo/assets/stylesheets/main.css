@@ -120,3 +120,26 @@ footer {
 .hide {
   display: none;
 }
+
+.footerbutton{
+  margin: 0;
+  padding: 4px;
+}
+
+.footerbutton li{
+  display:inline;
+  margin-right: 5px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 3px;
+ 
+}
+.footerbutton li a {
+  color: pink;
+  text-decoration: none;
+}
+
+.PutonSelect{
+  color: black;
+  background-color: white;
+}

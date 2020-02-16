@@ -9,6 +9,7 @@ const Todolist = document.querySelector("#todolist");
 
 const Deletebuttom = document.querySelector(".newlist");
 
+const SelectButton = document.querySelector(".newlist")
 console.log(Deletebuttom);
 
 findInTodoForm.addEventListener("keyup", e => {
@@ -39,6 +40,7 @@ addTodoForm.addEventListener("submit", e => {
               viewBox="0 0 512 512"
             >
               <path
+              class="Seclect-icon"
                 fill="currentColor"
                 d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
               ></path>
@@ -109,3 +111,16 @@ Deletebuttom.addEventListener("click", e => {
     // console.log(DelList.parentNode.parentNode);
   }
 });
+
+SelectButton.addEventListener("click", e => {
+  if (e.target.classList.contains("Seclect-icon")) {
+    const Allchoice = [];
+    let Yourchoice = e.target;
+    Yourchoice = Yourchoice.parentNode.parentNode.parentNode;
+    Yourchoice.classList.add("PutonSelect");
+    //if(Yourchoice.classList.)
+    //console.log("hello");
+    console.log(Yourchoice.classList);
+   // Allchoice.push(Yourchoice);
+   // console.log(Allchoice.length);
+  }});
