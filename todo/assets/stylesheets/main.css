@@ -121,25 +121,29 @@ footer {
   display: none;
 }
 
-.footerbutton{
+.footerbuttons {
   margin: 0;
   padding: 4px;
 }
 
-.footerbutton li{
-  display:inline;
+.footerbuttons li {
+  display: inline;
   margin-right: 5px;
   border: 1px solid transparent;
   border-radius: 3px;
   padding: 3px;
- 
 }
-.footerbutton li a {
+.footerbuttons li a {
   color: pink;
   text-decoration: none;
 }
 
-.PutonSelect{
+.PutonSelect {
   color: black;
-  background-color: white;
+  background-color: lightgray;
+}
+
+.checked {
+  background-color: lightgray;
+  text-decoration: line-through;
 }

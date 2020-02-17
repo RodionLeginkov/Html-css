@@ -7,10 +7,7 @@ const addTodoForm = document.querySelector("#addTodoForm");
 
 const Todolist = document.querySelector("#todolist");
 
-const Deletebuttom = document.querySelector(".newlist");
-
-const SelectButton = document.querySelector(".newlist")
-console.log(Deletebuttom);
+const controlbuttons = document.querySelector(".footerbuttons");
 
 findInTodoForm.addEventListener("keyup", e => {
   e.preventDefault();
@@ -22,7 +19,12 @@ const List = document.querySelectorAll("#todolist li");
 
 addTodoForm.addEventListener("submit", e => {
   e.preventDefault();
-  if (addTodoForm.newstring.value != "") {
+  const pattern = /[A-Z0-9a-z]/;
+
+  if (
+    addTodoForm.newstring.value != "" &&
+    pattern.test(addTodoForm.newstring.value)
+  ) {
     Todolist.innerHTML += `
     <li>
     <div class="mainlistitem">
@@ -84,43 +86,52 @@ function globalsearch(word) {
   const Mass = Array.from(Todolist.children);
 
   Mass.forEach(current => {
-    // current.preventDefault();
     const content = current.querySelector(".text").innerText;
-    /*console.log(content);
-    console.log(word);*/
     if (content.includes(word)) current.classList.remove("hide");
-    //current.classList.add("hide");
     else current.classList.add("hide");
   });
 }
 
-/*Deletebuttom.addEventListener("mousedown", e => {
-  e.preventDefault();
-  console.log(Deletebuttom.parentNode.parentNode);
-});*/
-
-Deletebuttom.addEventListener("click", e => {
+Todolist.addEventListener("click", e => {
   if (e.target.classList.contains("delete-icon")) {
     const DelList = e.target;
-    //console.log(DelList.parentNode.parentNode.parentNode.parentNode);
     DelList.parentNode.parentNode.parentNode.parentNode.remove();
-    //console.log(DelList);
-    //console.log(DelList.parentNode.parentNode);
-    //DelList = DelList.parentNode;
-    // DelList.parentNode.parentNode.remove();
-    // console.log(DelList.parentNode.parentNode);
   }
 });
 
-SelectButton.addEventListener("click", e => {
+Todolist.addEventListener("click", e => {
   if (e.target.classList.contains("Seclect-icon")) {
     const Allchoice = [];
     let Yourchoice = e.target;
     Yourchoice = Yourchoice.parentNode.parentNode.parentNode;
-    Yourchoice.classList.add("PutonSelect");
-    //if(Yourchoice.classList.)
-    //console.log("hello");
-    console.log(Yourchoice.classList);
-   // Allchoice.push(Yourchoice);
-   // console.log(Allchoice.length);
-  }});
+    if (Yourchoice.classList.contains("PutonSelect")) {
+      Yourchoice.parentNode.parentNode.parentNode.classList.remove("checked");
+      Yourchoice.classList.remove("PutonSelect");
+    } else {
+      Yourchoice.classList.add("PutonSelect");
+      Yourchoice.parentNode.parentNode.parentNode.classList.add("checked");
+    }
+  }
+});
+
+controlbuttons.addEventListener("click", e => {
+  const ActiveMass = Array.from(Todolist.children);
+  if (e.target.classList.contains("SellectAll")) {
+    const ListMass = Array.from(Todolist.children);
+    ListMass.forEach(current => {
+      current.classList.remove("hide");
+    });
+  } else if (e.target.classList.contains("ActiveButton")) {
+    ActiveMass.forEach(current => {
+      if (!current.classList.contains("checked"))
+        current.classList.remove("hide");
+      else current.classList.add("hide");
+    });
+  } else if (e.target.classList.contains("ComplitedButton")) {
+    ActiveMass.forEach(current => {
+      if (current.classList.contains("checked"))
+        current.classList.remove("hide");
+      else current.classList.add("hide");
+    });
+  }
+});

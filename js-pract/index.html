@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Arrow Functions</title>
+  </head>
+  <body>
+    ​
+    <ul id="List">
+      <li data-time="5:17">Flexbox Video</li>
+      <li data-time="8:22">Flexbox Video</li>
+      <li data-time="3:34">Redux Video</li>
+      <li data-time="5:23">Flexbox Video</li>
+      <li data-time="7:12">Flexbox Video</li>
+      <li data-time="7:24">Redux Video</li>
+      <li data-time="6:46">Flexbox Video</li>
+      <li data-time="4:45">Flexbox Video</li>
+      <li data-time="4:40">Flexbox Video</li>
+      <li data-time="7:58">Redux Video</li>
+      <li data-time="11:51">Flexbox Video</li>
+      <li data-time="9:13">Flexbox Video</li>
+      <li data-time="5:50">Flexbox Video</li>
+      <li data-time="5:52">Redux Video</li>
+      <li data-time="5:49">Flexbox Video</li>
+      <li data-time="8:57">Flexbox Video</li>
+      <li data-time="11:29">Flexbox Video</li>
+      <li data-time="3:07">Flexbox Video</li>
+      <li data-time="5:59">Redux Video</li>
+      <li data-time="3:31">Flexbox Video</li>
+    </ul>
+    ​
+    <script>
+      //Select all the list items on the page and convert to array
+
+      const NewList = Array.from(document.querySelectorAll("li"));
+      console.log(NewList);
+
+      // Filter for only the elements that contain the word 'Flexbox'
+
+      const FlexList = NewList.filter(x => x.textContent.includes("Flexbox"));
+
+      console.log(FlexList);
+
+      // map down to a list of time strings
+      const ListStr = FlexList.map(x => x.dataset.time);
+      console.log(ListStr);
+
+      // map to an array of seconds
+      const ListSecund = ListStr.map(x => {
+        secund = x.split(":");
+        return parseInt(secund[0] * 60) + parseInt(secund[1]);
+      });
+      console.log(ListSecund);
+
+      // reduce to get total
+      const TotalSum = ListSecund.reduce((acc, cur) => acc + cur);
+      console.log(TotalSum);
+    </script>
+  </body>
+</html>
